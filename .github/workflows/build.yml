@@ -19,7 +19,7 @@ jobs:
       - name: Clone AASX Package Explorer repository
         run: |
           cd ../
-          git clone https://github.com/eclipse-aaspe/package-explorer
+          git clone https://github.com/eclipse-aaspe/package-explorer:aasx-package-explorer
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
