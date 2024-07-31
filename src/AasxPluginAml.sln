@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AasxPluginAml", "AasxPluginAml\AasxPluginAml.csproj", "{C20673E0-77F0-447D-AA8A-78120F54AF33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aaspe", "aaspe", "{F84C5630-5EC4-4606-90CD-643362FE88CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AasxCsharpLibrary", "..\..\aasx-package-explorer\src\AasxCsharpLibrary\AasxCsharpLibrary.csproj", "{527DF900-6A47-4770-BE37-4290E30EC222}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AasxIntegrationBase", "..\..\aasx-package-explorer\src\AasxIntegrationBase\AasxIntegrationBase.csproj", "{B848C00F-4978-4C00-9402-C26777BDDE2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AasxIntegrationBaseWpf", "..\..\aasx-package-explorer\src\AasxIntegrationBaseWpf\AasxIntegrationBaseWpf.csproj", "{21511226-160D-4BF0-A843-2CE587E5B0CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AasxWpfControlLibrary", "..\..\aasx-package-explorer\src\AasxWpfControlLibrary\AasxWpfControlLibrary.csproj", "{49B999D5-AC1B-474E-A857-5926EDFC3085}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C20673E0-77F0-447D-AA8A-78120F54AF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20673E0-77F0-447D-AA8A-78120F54AF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20673E0-77F0-447D-AA8A-78120F54AF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20673E0-77F0-447D-AA8A-78120F54AF33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527DF900-6A47-4770-BE37-4290E30EC222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527DF900-6A47-4770-BE37-4290E30EC222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527DF900-6A47-4770-BE37-4290E30EC222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527DF900-6A47-4770-BE37-4290E30EC222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B848C00F-4978-4C00-9402-C26777BDDE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B848C00F-4978-4C00-9402-C26777BDDE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B848C00F-4978-4C00-9402-C26777BDDE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B848C00F-4978-4C00-9402-C26777BDDE2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21511226-160D-4BF0-A843-2CE587E5B0CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21511226-160D-4BF0-A843-2CE587E5B0CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21511226-160D-4BF0-A843-2CE587E5B0CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21511226-160D-4BF0-A843-2CE587E5B0CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B999D5-AC1B-474E-A857-5926EDFC3085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B999D5-AC1B-474E-A857-5926EDFC3085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B999D5-AC1B-474E-A857-5926EDFC3085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B999D5-AC1B-474E-A857-5926EDFC3085}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{527DF900-6A47-4770-BE37-4290E30EC222} = {F84C5630-5EC4-4606-90CD-643362FE88CD}
+		{B848C00F-4978-4C00-9402-C26777BDDE2C} = {F84C5630-5EC4-4606-90CD-643362FE88CD}
+		{21511226-160D-4BF0-A843-2CE587E5B0CB} = {F84C5630-5EC4-4606-90CD-643362FE88CD}
+		{49B999D5-AC1B-474E-A857-5926EDFC3085} = {F84C5630-5EC4-4606-90CD-643362FE88CD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E781590D-75E0-4762-91B5-822B379A52EB}
+	EndGlobalSection
+EndGlobal
