@@ -1,8 +1,8 @@
 # aml-aaspe-plugin
 
-A plugin for the AASX Package Explorer demonstrating the integration of AutomationML and Asset Administration Shell
-
 A plugin for the [Eclipse AASX Package Explorer<sup><small>TM</small></sup>](https://github.com/eclipse-aaspe/package-explorer) (*AASPE*) demonstrating the integration of AutomationML and Asset Administration Shell as proposed in the *AutomationML* *Application Recomendation* [AutomationML in Asset Administration Shells](https://www.automationml.org/wp-content/uploads/2024/05/AR-Integrating-AML-projects-in-AAS.zip).
+
+In addition, several actions highlight results from the [*DIAMOND* research project](https://diamond-project.de/en/) are provided.
 
 ## Installation
 
@@ -23,3 +23,8 @@ A plugin for the [Eclipse AASX Package Explorer<sup><small>TM</small></sup>](htt
 - Start *AASPE*
 - Attach the debugger to the running *AASPE* process, e.g. by selecting `Debug -> Attach to process...` in Visual Studio
 
+## General Usage
+
+This plugin adds several actions to the *AASPE*. After completing the steps described in the *Installation* section and starting the *AASPE*, these actions should be available via `Workspace -> Create...` as shown in the following screenshot:
+
+![Plugin Actions](resources/plugin-actions.png)
