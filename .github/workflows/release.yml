@@ -1,0 +1,100 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Infer the version from the github ref
+        id: inferVersion
+        run: |
+          $prefix = "refs/tags/v"
+          if (!${env:GITHUB_REF}.StartsWith($prefix))
+          {
+              throw "Unexpected GITHUB_REF: ${env:GITHUB_REF}"
+          }
+
+          $version = ${env:GITHUB_REF}.Substring($prefix.Length)
+          Write-Host "The version is: $version"
+
+          if ($version.Contains("'"))
+          {
+              throw "Unexpected version containing a single quote: $version"
+          }
+          if ($version.Contains('"'))
+          {
+              throw "Unexpected version containing a double quote: $version"
+          }
+          if ($version.Contains(':'))
+          {
+              throw "Unexpected version containing a full colon: $version"
+          }
+
+          Write-Output "::set-output name=version::$version"
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Clone AASX Package Explorer repository
+        run: |
+          cd ../
+          git clone https://github.com/eclipse-aaspe/package-explorer
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore ./src/AasxPluginAml.sln
+      - name: Build
+        run: dotnet build --no-restore ./src/AasxPluginAml.sln
+
+      - name: Create archive
+        run: |
+          $version = '${{ steps.inferVersion.outputs.version }}'
+          $releaseDir = Join-Path $(Get-Location) "artefacts\release\$version"
+
+          if (!(Test-Path $releaseDir))
+          {
+              Write-Host "Creating release directory: $releaseDir"
+              New-Item -ItemType Directory -Path $releaseDir
+          }
+
+          if (!(Test-Path $releaseDir))
+          {
+              New-Item -ItemType Directory -Path $releaseDir
+          }
+
+          $archiveName = ("AasxPluginAml-v$version.zip")
+          Write-Host "Release archive name: $archiveName"
+
+
+          $target = Join-Path $releaseDir $archiveName
+
+          Write-Host "Creating release archive: $target"
+
+          Rename-Item -Path ".\src\AasxPluginAml\bin\Debug\net6.0-windows" -NewName "AasxPluginAml"
+          Compress-Archive -Path .\src\AasxPluginAml\bin\Debug\AasxPluginAml -DestinationPath $target
+      - name: Check
+        run: |
+          ls artefacts\release
+          ls artefacts\release\${{ steps.inferVersion.outputs.version }}
+          $path = "artefacts\release\${{ steps.inferVersion.outputs.version }}\AasxPluginAml-v${{ steps.inferVersion.outputs.version }}.zip"
+          if (!(Test-Path $path))
+          {
+              throw "The file $path does not exist"
+          }
+      - name: Upload the release assets
+        uses: Hs1r1us/Release-AIO@v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "v${{ steps.inferVersion.outputs.version }}"
+          asset_files: "artefacts/release/${{ steps.inferVersion.outputs.version }}/AasxPluginAml-v${{ steps.inferVersion.outputs.version }}.zip"
